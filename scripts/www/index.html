@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的极简记账本</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">我的极简记账本</h1>
+        <div class="stats">
+            <div class="balance">余额：<span id="balance">0.00</span>元</div>
+            <div class="income">收入：<span id="income">0.00</span>元</div>
+            <div class="expense">支出：<span id="expense">0.00</span>元</div>
+        </div>
+    </header>
+    
+    <main class="main">
+        <form id="form" class="form">
+            <div class="input-group">
+                <input type="number" id="amount" placeholder="金额" step="0.01" required>
+                <select id="type" required>
+                    <option value="expense">支出</option>
+                    <option value="income">收入</option>
+                </select>
+                <input type="text" id="note" placeholder="备注（可选）" maxlength="20">
+            </div>
+            <button type="submit" class="btn">添加记录</button>
+        </form>
+        
+        <div class="records" id="records-container"></div>
+    </main>
+    
+    <footer class="footer">
+        <div class="filter">
+            <button id="all" class="filter-btn active">全部</button>
+            <button id="income-btn" class="filter-btn">收入</button>
+            <button id="expense-btn" class="filter-btn">支出</button>
+        </div>
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
